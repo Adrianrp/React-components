@@ -1,0 +1,79 @@
+@import "../../node_modules/susy/sass/susy";
+@import '../../node_modules/susy/sass/plugins/svg-grid';
+
+
+/* MIXINS & VARIABLES ****************************/
+@mixin cf {
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+$susy: (
+        'columns': susy-repeat(8),
+        'svg-grid-colors': hsl(180, 50%, 80%),
+        'container-spread': 'narrow',
+        'spread': 'narrow'
+);
+/************************************/
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+img {
+  width: 100%;
+}
+
+.App {
+  background: susy-svg-grid() no-repeat scroll;
+}
+header {
+  padding-top: susy-span(1);
+}
+
+.Signin__asset {
+  display: flex;
+  justify-content: center;
+  img {
+    max-width: susy-span(4);
+  }
+}
+
+.SignIn-container {
+  width: susy-span(6);
+  margin-left: span(1 wide);
+  padding-top: susy-span(1);
+  padding-bottom: susy-span(1);
+}
+.form-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: susy-span(1.2);
+}
+.form__item {
+  width: susy-span(4 of 6);
+  &:nth-child(2n) {
+    width: susy-span(2 of 6);
+  }
+}
+.form__link {
+  width: susy-span(3 of 6);
+  padding-top: susy-span(1);
+  text-align: center;
+}
+footer {
+  padding-top: susy-span(1.2);
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6d6d6d;
+  p {
+    margin: 0;
+  }
+}
