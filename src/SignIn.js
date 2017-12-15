@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
+import Header from './Header';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import Switch from 'material-ui/Switch';
-import { FormControlLabel, FormGroup } from 'material-ui/Form';
+import { FormControlLabel } from 'material-ui/Form';
 import SigninFailDialog from './Components/SigninFailDialog';
 
 class SignIn extends Component {
@@ -65,7 +66,9 @@ class SignIn extends Component {
     const shouldFormBeDisabled =  (!(this.state.emailValue && this.state.passwordValue));
 
     return (
-      <form className="SignIn-container" noValidate autoComplete="off">
+      <div>
+        <Header/>
+        <form className="SignIn-container" noValidate autoComplete="off">
           <TextField
             required
             error={this.state.error}
@@ -78,54 +81,56 @@ class SignIn extends Component {
             onChange={this.handleEmailChange}
             margin="normal"
           />
-        <br/>
-        <TextField
-          required
-          type="password"
-          label="Password"
-          error={this.state.error}
-          value={this.state.passwordValue}
-          fullWidth={true}
-          onChange={this.handlePasswordChange}
-          margin="normal"
-        />
-        <div className="form-controls">
-          <div className="form__item">
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={this.state.isBoxChecked}
-                  onChange={(event, checked) => this.setState({ isBoxChecked: checked })}
-                />
-              }
-              label="Remember me"
-            />
+          <br/>
+          <TextField
+            required
+            type="password"
+            label="Password"
+            error={this.state.error}
+            value={this.state.passwordValue}
+            fullWidth={true}
+            onChange={this.handlePasswordChange}
+            margin="normal"
+          />
+          <div className="form-controls">
+            <div className="form__item">
+              <FormControlLabel
+                control={
+                  <Switch
+                    checked={this.state.isBoxChecked}
+                    onChange={(event, checked) => this.setState({ isBoxChecked: checked })}
+                  />
+                }
+                label="Remember me"
+              />
+            </div>
+            <div className="form__item">
+              <Button
+                raised
+                label="LOGIN"
+                color="primary"
+                disabled={shouldFormBeDisabled}
+                onClick={this.handleSubmit}
+              >LOGIN</Button>
+            </div>
+            <div className="form__link">
+              <a href="">Request Access</a>
+            </div>
+            <div className="form__link">
+              <a href="">Forgot Password?</a>
+            </div>
           </div>
-          <div className="form__item">
-            <Button
-              raised
-              label="LOGIN"
-              color="primary"
-              disabled={shouldFormBeDisabled}
-              onClick={this.handleSubmit}
-            >LOGIN</Button>
+          <div className="Signin__asset">
+            <img src="https://placeimg.com/150/70/animals/grayscale" alt="logo"/>
           </div>
-          <div className="form__link">
-            <a href="">Request Access</a>
-          </div>
-          <div className="form__link">
-            <a href="">Forgot Password?</a>
-          </div>
-        </div>
-        <div className="Signin__asset">
-          <img src="https://placeimg.com/150/70/animals/grayscale" alt="logo"/>
-        </div>
-        <footer>
-          <p>By logging in you agree to our<br/> <a href="">Terms and Conditions</a> and <a href="">Privacy Policy</a>
-          </p>
-        </footer>
-        <SigninFailDialog isOpen={this.state.open} handleClose={this.handleRequestClose.bind(this)}/>
-      </form>
+          <footer>
+            <p>By logging in you agree to our<br/> <a href="">Terms and Conditions</a> and <a href="">Privacy Policy</a>
+            </p>
+          </footer>
+          <SigninFailDialog isOpen={this.state.open} handleClose={this.handleRequestClose.bind(this)}/>
+        </form>
+      </div>
+
     )
   }
 
