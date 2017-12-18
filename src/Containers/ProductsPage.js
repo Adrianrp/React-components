@@ -4,9 +4,9 @@ import AppBarDashboard from '../Components/AppBar';
 class ProductsPageContainer extends Component {
   render () {
     return (
-      <div>
-        <AppBarDashboard/>
-      </div>
+        <div className="dashboard-container">
+          <AppBarDashboard/>
+        </div>
     )
   }
 };
