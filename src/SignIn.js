@@ -46,10 +46,8 @@ class SignIn extends Component {
 
     if(isEmailValid && isPasswordValid) {
       // TODO signin - success redirect go to dashboard
-
        console.log('success!!');
     } else {
-      // TODO show modal to try again
       this.toggleErrorMessages();
     }
   }

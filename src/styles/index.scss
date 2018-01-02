@@ -95,3 +95,13 @@ footer {
 .card-container {
   margin: 5px;
 }
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.subtitle {
+  color: #959595;
+  display: block;
+  margin-bottom: susy-span(1);
+}
