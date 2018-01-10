@@ -5,7 +5,6 @@ import Divider from 'material-ui/Divider';
 import Dialog, {
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
 } from 'material-ui/Dialog';
 import { FormControlLabel, FormGroup } from 'material-ui/Form';

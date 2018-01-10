@@ -7,6 +7,9 @@ import {
 import Divider from 'material-ui/Divider';
 import ProductCardList from '../Components/ProductCardList';
 
+const styles = {
+  padding: '0'
+};
 const ProductsCard = (props) => {
   let {name, buildingNo, fixtures} = props.data;
   //console.log(props.data, 'products here');
@@ -27,8 +30,8 @@ const ProductsCard = (props) => {
           }
         />
         <Divider light />
-        <CardContent>
-          <ProductCardList list={fixtures}/>
+        <CardContent style={styles} >
+          <ProductCardList list={fixtures} handleCheckboxChange={props.handleCheckboxChange.bind(this)}/>
         </CardContent>
       </Card>
     </div>

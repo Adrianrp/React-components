@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import AppBarDashboard from '../Components/AppBar';
 import ProductsCard from '../Components/ProductsCard';
-import Button from 'material-ui/Button';
 import ProductsUserSettings from '../Components/ProductsUserSettings';
+import ItemDrawer from '../Components/ItemDrawer';
+
 class ProductsPageContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       open: false,
       notify: false,
-      products: []
+      products: [],
+      drawerOpen: false
     };
   }
 
@@ -34,6 +36,22 @@ class ProductsPageContainer extends Component {
       open:true
     })
   }
+  /*DRAWER SECTION*/
+  toggleItemDrawer() {
+    this.setState({
+      drawerOpen: !this.state.drawerOpen
+    })
+  }
+  handleCheckboxChange() {
+    this.setState({
+      drawerOpen:true
+    })
+  }
+  handleClearClick() {
+    this.setState({
+      drawerOpen:false
+    })
+  }
   handleSwitch() {
     this.setState({
       notify: !this.state.notify
@@ -42,7 +60,10 @@ class ProductsPageContainer extends Component {
   render () {
     const productsCardMap = this.state.products.map((data, i) => {
       return (
-        <ProductsCard key={i} handleClickOpen={this.handleClickOpen.bind(this)} data={data}/>
+        <ProductsCard
+          key={i}
+          handleClickOpen={this.handleClickOpen.bind(this)}
+          data={data} handleCheckboxChange={this.handleCheckboxChange.bind(this)}/>
       )
     });
     return (
@@ -54,6 +75,7 @@ class ProductsPageContainer extends Component {
             handleClose={this.handleRequestClose.bind(this)}
             handleSwitch={this.handleSwitch.bind(this)}
             shouldNotify={this.state.notify}/>
+            <ItemDrawer drawerOpen={this.state.drawerOpen} handleClearClick={this.handleClearClick.bind(this)}/>
         </div>
     )
   }
