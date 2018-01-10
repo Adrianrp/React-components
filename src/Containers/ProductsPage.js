@@ -37,6 +37,7 @@ class ProductsPageContainer extends Component {
     })
   }
   /*DRAWER SECTION*/
+  // TODO Missing to implement that when clicking clear button in the item drawer, the checkbox clears out.
   toggleItemDrawer() {
     this.setState({
       drawerOpen: !this.state.drawerOpen
